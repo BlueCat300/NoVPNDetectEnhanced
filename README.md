@@ -1,4 +1,5 @@
 <div align="center">
+<h3><a href="https://github.com/BlueCat300/NoVPNDetectEnhanced/blob/master/README_en.md">English</a></h3>
 <h1>NoVPNDetect Enhanced</h1>
 
 ![downloads](https://img.shields.io/github/downloads/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/total)
@@ -17,9 +18,9 @@
 Модуль выводит в LSPosed лог все виды API к которому обращается приложение.
 
 Благодарности разработчикам ниже за нахождение различных путей обнаружений:
-[VPN Detector](https://github.com/cherepavel/VPN-Detector)
-[YourVPNDead](https://github.com/loop-uh/yourvpndead)
-[RKNHardering](https://github.com/xtclovver/RKNHardering)
+- [VPN Detector](https://github.com/cherepavel/VPN-Detector)
+- [YourVPNDead](https://github.com/loop-uh/yourvpndead)
+- [RKNHardering](https://github.com/xtclovver/RKNHardering)
 
 Вы так же можете проверять эффективность модуля на этих приложениях, однако помните что практика(реальные приложения) это лучший путь тестирования. В дополнение к этому модулю рекомендуется использовать [PortGuard](https://4pda.to/forum/index.php?showtopic=915158&view=findpost&p=142838199) c версии 1.0.1, для защиты локальных портов.
 
@@ -40,6 +41,6 @@
 - getifaddrs() > libc.so
 
 ### Скачать:
-[LSPosed репозиторий](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
-[4PDA](https://4pda.to/forum/index.php?showtopic=603033)
+- [LSPosed репозиторий](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
+- [4PDA](https://4pda.to/forum/index.php?showtopic=603033)
 
