@@ -14,9 +14,9 @@ The module uses the techniques of [this module](https://bitbucket.org/yuri-proje
 The module outputs all APIs accessed by the application to the LSPosed log.
 
 Thanks to the developers below for finding various detection ways:
-[VPN Detector](https://github.com/cherepavel/VPN-Detector)
-[YourVPNDead](https://github.com/loop-uh/yourvpndead)
-[RKNHardering](https://github.com/xtclovver/RKNHardering)
+- [VPN Detector](https://github.com/cherepavel/VPN-Detector)
+- [YourVPNDead](https://github.com/loop-uh/yourvpndead)
+- [RKNHardering](https://github.com/xtclovver/RKNHardering)
 
 You can also test the module's effectiveness on these applications, but remember that practice (real applications) is the best way to test.
 
@@ -37,5 +37,5 @@ You can also test the module's effectiveness on these applications, but remember
 - getifaddrs() > libc.so
 
 ### Download:
-[LSPosed repository](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
+- [LSPosed repository](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
 
