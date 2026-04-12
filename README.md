@@ -7,7 +7,7 @@
 [![GitHub Release Date](https://img.shields.io/github/release-date/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced)](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
 [![Telegram](https://img.shields.io/badge/Telegram-Channel-blue.svg?logo=telegram)](https://t.me/lsposed_workshop)
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg?logo=telegram)](https://t.me/lsposed_workshop_forum)
-[![4PDA](https://img.shields.io/badge/4PDA-Topic-blue)](https://4pda.to/forum/index.php?showtopic=603033)
+[![4PDA](https://img.shields.io/badge/4PDA-Topic-blue)](https://4pda.to/forum/index.php?showtopic=603033&view=findpost&p=142899904)
 [![Donate](https://img.shields.io/badge/Donate_Form-blue)](https://pay.cloudtips.ru/p/85f8cf00)
 
 <p>Скрытие различных локальных обнаружений VPN через публичный API от приложений на android устройствах.</p>
@@ -43,5 +43,5 @@
 
 ### Скачать:
 - [LSPosed репозиторий](https://github.com/Xposed-Modules-Repo/ru.bluecat.novpndetectenhanced/releases)
-- [4PDA](https://4pda.to/forum/index.php?showtopic=603033)
+- [4PDA](https://4pda.to/forum/index.php?showtopic=603033&view=findpost&p=142899904)
 
