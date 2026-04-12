@@ -23,6 +23,7 @@ You can also test the module's effectiveness on these applications, but remember
 ### Attention:
 - The module won't work if you have the PMPatch zygisk module from Lucky Patcher installed on your device for patching PackageManager. Apps will crash. Make sure it's not installed on your device, you can replace it with the lsposed patching option.
 - The module will not work if application has LSPosed protection, checking for memory injection.
+- The module may not intercept some low-level techniques used by applications built on cross-platform frameworks, including webview (pure web interface).
 - The module can operate in [LSPatch](https://github.com/JingMatrix/LSPatch) mode. No settings are required, simply rebuilding the application is sufficient. The application must not be protected by signature or rebuilding checking.
 
 
