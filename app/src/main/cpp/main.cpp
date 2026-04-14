@@ -7,7 +7,7 @@
 
 static int (*orig_getifaddrs)(struct ifaddrs **ifap);
 
-bool IsVpnInterface(const char* name) {
+bool is_vpn_interface(const char* name) {
     if (!name) return false;
 
     std::string_view sv(name);
@@ -18,7 +18,7 @@ bool IsVpnInterface(const char* name) {
            sv.starts_with("ipsec");
 }
 
-const char* GetRandomName() {
+const char* get_random_name() {
     using namespace std::literals;
 
     static constexpr std::array names {
@@ -38,15 +38,15 @@ const char* GetRandomName() {
  * This option can be used mostly by applications on cross-platform frameworks.
  * Checking interface names via getifaddrs in libc.so
  */
-int FilterInterfaces(struct ifaddrs **ifap) {
+int hook_getifaddrs(struct ifaddrs **ifap) {
     int result = orig_getifaddrs(ifap);
 
     if (result == 0 && ifap != nullptr && *ifap != nullptr) {
         struct ifaddrs *current = *ifap;
 
         while (current != nullptr) {
-            if (IsVpnInterface(current->ifa_name)) {
-                auto spoofed_name = GetRandomName();
+            if (is_vpn_interface(current->ifa_name)) {
+                auto spoofed_name = get_random_name();
                 PrintLogs("Hooked: Native | getifaddrs() {} -> {}", current->ifa_name, spoofed_name);
                 current->ifa_name = (char*) spoofed_name;
             }
@@ -61,7 +61,7 @@ NativeOnModuleLoaded native_init(const NativeAPIEntries *entries) {
     void* pointer = dlsym(RTLD_DEFAULT, "getifaddrs");
 
     if (pointer != nullptr) {
-        entries->hook_func(pointer, (void *) FilterInterfaces, (void **)&orig_getifaddrs);
+        entries->hook_func(pointer, (void *) hook_getifaddrs, (void **)&orig_getifaddrs);
     }
     return nullptr;
 }
