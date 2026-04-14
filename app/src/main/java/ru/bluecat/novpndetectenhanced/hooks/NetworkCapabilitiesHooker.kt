@@ -1,6 +1,8 @@
 package ru.bluecat.novpndetectenhanced.hooks
 
+import android.annotation.SuppressLint
 import android.net.NetworkCapabilities
+import android.net.TransportInfo
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import com.highcapable.kavaref.extension.classOf
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
@@ -18,6 +20,7 @@ object NetworkCapabilitiesHooker : YukiBaseHooker() {
         hookHasTransport()
         hookGetCapabilities()
         hookHasCapability()
+        hookTransportInfo()
         hookDebugInfo()
     }
 
@@ -66,6 +69,21 @@ object NetworkCapabilitiesHooker : YukiBaseHooker() {
                 if (capability == NetworkCapabilities.NET_CAPABILITY_NOT_VPN) {
                     printLogs("Hooked: NetworkCapabilities.hasCapability($capability) -> true")
                     resultTrue()
+                }
+            }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private fun hookTransportInfo() {
+        val method = NetCapabilities.resolve()
+            .optional(true)
+            .firstMethodOrNull { name = "getTransportInfo" } ?: return
+
+        method.hook().after {
+            result<TransportInfo>()?.let { info ->
+                if (info::class.java.name.endsWith("VpnTransportInfo")) {
+                    resultNull()
                 }
             }
         }
