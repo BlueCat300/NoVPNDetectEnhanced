@@ -21,6 +21,8 @@ class HookEntry : IYukiHookXposedInit {
 
     override fun onHook() = YukiHookAPI.encase {
         loadApp {
+            if (mainProcessName == "android") return@encase
+
             withProcess(mainProcessName) {
                 System.loadLibrary("lspd-native")
 
