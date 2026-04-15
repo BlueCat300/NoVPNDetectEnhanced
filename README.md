@@ -15,7 +15,7 @@
 
 ### Описание:
 Модуль использует методики [данного модуля](https://bitbucket.org/yuri-project/novpndetect/src/main/) со значительным расширением возможностей. Перехватывается значительно большее количество публичных API, а так же C++ подход.
-Модуль выводит в LSPosed лог все виды API к которому обращается приложение.
+Модуль выводит в LSPosed лог все виды API к которому обращается приложение. Применяется к целевым приложениям в менеджере LSPosed.
 
 Благодарности разработчикам ниже за нахождение различных путей обнаружений:
 - [VPN Detector](https://github.com/cherepavel/VPN-Detector)
@@ -32,7 +32,7 @@
 
 
 ### Скрываемые публичные API:
-- NetworkCapabilities: hasTransport(), getCapabilities(), hasCapability(), toString()
+- NetworkCapabilities: hasTransport(), getCapabilities(), hasCapability(), toString(), getTransportInfo()
 - NetworkInterface: isVirtual(), getName(), getByName(), isUp(), getNetworkInterfaces(), getMTU()
 - LinkProperties: getInterfaceName(), getRoutes()
 - ConnectivityManager: getNetworkInfo()
