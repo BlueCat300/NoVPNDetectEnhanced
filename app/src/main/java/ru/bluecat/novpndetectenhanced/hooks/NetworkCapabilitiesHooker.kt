@@ -83,6 +83,7 @@ object NetworkCapabilitiesHooker : YukiBaseHooker() {
         method.hook().after {
             result<TransportInfo>()?.let { info ->
                 if (info::class.java.name.endsWith("VpnTransportInfo")) {
+                    printLogs("Hooked: NetworkCapabilities.getTransportInfo() -> null")
                     resultNull()
                 }
             }
