@@ -13,7 +13,7 @@ android {
         applicationId = "ru.bluecat.novpndetectenhanced"
         minSdk = 26
         targetSdk = 37
-        versionCode = 5
+        versionCode = 8
         versionName = "1.1"
 
         externalNativeBuild {
