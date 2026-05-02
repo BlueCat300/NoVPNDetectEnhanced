@@ -4,6 +4,7 @@ package ru.bluecat.novpndetectenhanced.hooks
 
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import com.highcapable.kavaref.KavaRef.Companion.asResolver
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import com.highcapable.kavaref.extension.classOf
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
@@ -20,6 +21,7 @@ object NetworkInfoHooker : YukiBaseHooker() {
     override fun onHook() {
         hookGetType()
         hookGetTypeName()
+        hookNetworkState()
     }
 
     private fun hookGetType() {
@@ -51,6 +53,25 @@ object NetworkInfoHooker : YukiBaseHooker() {
                         printLogs("Hooked: NetworkInfo.$methodName() -> TYPE_WIFI")
                         result = "WIFI"
                     }
+                }
+            }
+        }
+    }
+
+    private fun hookNetworkState() {
+        for (methodName in listOf("isConnectedOrConnecting", "isConnected")) {
+            val method = netInfo.resolve()
+                .optional(true)
+                .firstMethodOrNull { name = methodName } ?: continue
+
+            method.hook().after {
+                val networkType = instance.asResolver()
+                    .optional(true)
+                    .firstFieldOrNull { name = "mNetworkType" }?.get<Int>() ?: return@after
+
+                if (networkType == ConnectivityManager.TYPE_VPN) {
+                    printLogs("Hooked: NetworkInfo.$methodName() -> false")
+                    resultFalse()
                 }
             }
         }
