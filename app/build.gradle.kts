@@ -18,13 +18,13 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags.addAll(listOf(
+                cppFlags(
                     "-std=c++20",
                     "-fvisibility=hidden",
                     "-fvisibility-inlines-hidden",
                     "-funwind-tables",
                     "-fasynchronous-unwind-tables"
-                ))
+                )
             }
         }
 
@@ -43,7 +43,6 @@ android {
     buildTypes {
         debug {
             isMinifyEnabled = false
-            isShrinkResources = false
         }
 
         release {
@@ -52,16 +51,16 @@ android {
 
             externalNativeBuild {
                 cmake {
-                    arguments.addAll(listOf(
+                    arguments(
                         "-DCMAKE_BUILD_TYPE=Release",
                         "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--gc-sections",
                         "-DCMAKE_CXX_FLAGS_RELEASE=-O2"
-                    ))
-                    cppFlags.addAll(listOf(
+                    )
+                    cppFlags(
                         "-ffunction-sections",
                         "-fdata-sections",
                         "-flto=full"
-                    ))
+                    )
                 }
             }
 
