@@ -35,8 +35,7 @@
 - NetworkCapabilities: hasTransport(), getCapabilities(), hasCapability(), toString(), getTransportInfo()
 - NetworkInterface: isVirtual(), getName(), getByName(), isUp(), getNetworkInterfaces(), getMTU()
 - LinkProperties: getInterfaceName(), getRoutes()
-- ConnectivityManager: getNetworkInfo()
-- NetworkInfo: getType(), getSubtype(), getTypeName(), getSubtypeName()
+- NetworkInfo: getType(), getSubtype(), getTypeName(), getSubtypeName(), isConnectedOrConnecting(), isConnected()
 
 ### Скрываемые Native(C++):
 - getifaddrs() > libc.so
