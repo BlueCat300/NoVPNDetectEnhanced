@@ -32,6 +32,7 @@ You can also test the module's effectiveness on these applications, but remember
 - NetworkInterface: isVirtual(), getName(), getByName(), isUp(), getNetworkInterfaces(), getMTU()
 - LinkProperties: getInterfaceName(), getRoutes()
 - NetworkInfo: getType(), getSubtype(), getTypeName(), getSubtypeName(), isConnectedOrConnecting(), isConnected()
+- ConnectivityManager: getNetworkCapabilities(), registerNetworkCallback(), registerDefaultNetworkCallback(), registerBestMatchingNetworkCallback(), requestNetwork()
 
 ### Hidden Native(C++):
 - getifaddrs() > libc.so
