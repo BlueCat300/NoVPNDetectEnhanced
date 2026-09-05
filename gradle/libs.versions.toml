@@ -1,12 +1,12 @@
 [versions]
-android = "9.2.0"
+android = "9.4.0"
+kotlin-android = "2.4.0"
 ksp = "2.3.7"
 
-androidx-core = "1.18.0"
-kavaref-core = "1.0.2"
-kavaref-ext = "1.0.2"
+androidx-core = "1.19.0"
+kavaref-bom = "1.1.0"
 xposed = "82"
-yukihook = "1.3.1"
+yukihook = "1.3.2"
 
 
 [plugins] # alias = { id = "", version.ref = "" }
@@ -15,10 +15,22 @@ devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 
 [libraries] # alias = { group = "", name = "", version.ref = "" }
+kotlin-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-android" }
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core" }
-kavaref-core = { group = "com.highcapable.kavaref", name = "kavaref-core", version.ref = "kavaref-core" }
-kavaref-extension = { group = "com.highcapable.kavaref", name = "kavaref-extension", version.ref = "kavaref-ext" }
+
+kavaref-bom = { group = "com.highcapable.kavaref", name = "kavaref-bom", version.ref = "kavaref-bom" }
+kavaref-core = { group = "com.highcapable.kavaref", name = "kavaref-core" }
+kavaref-android = { group = "com.highcapable.kavaref", name = "kavaref-android" }
+kavaref-extension = { group = "com.highcapable.kavaref", name = "kavaref-extension" }
 
 xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed" }
 yukihook-ksp = { group = "com.highcapable.yukihookapi", name = "ksp-xposed", version.ref = "yukihook" }
 yukihook-api = { group = "com.highcapable.yukihookapi", name = "api", version.ref = "yukihook" }
+
+
+[bundles]
+kavaref = [
+    "kavaref-core",
+    "kavaref-android",
+    "kavaref-extension"
+]

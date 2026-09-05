@@ -121,8 +121,8 @@ androidComponents {
 
 dependencies {
     implementation (libs.androidx.core)
-    implementation (libs.kavaref.core)
-    implementation (libs.kavaref.extension)
+    implementation (platform(libs.kavaref.bom))
+    implementation (libs.bundles.kavaref)
 
     compileOnly (libs.xposed.api)
     ksp (libs.yukihook.ksp)
