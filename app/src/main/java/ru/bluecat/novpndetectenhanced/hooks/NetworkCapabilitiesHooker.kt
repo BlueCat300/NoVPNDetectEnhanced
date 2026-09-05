@@ -74,7 +74,7 @@ object NetworkCapabilitiesHooker : YukiBaseHooker() {
         }
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "ReplaceWithKavaRefExtension")
     private fun hookTransportInfo() {
         val method = NetCapabilities.resolve()
             .optional(true)

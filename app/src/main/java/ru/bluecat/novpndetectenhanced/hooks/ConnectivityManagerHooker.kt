@@ -8,6 +8,7 @@ import android.net.NetworkRequest
 import com.highcapable.kavaref.KavaRef.Companion.asResolver
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import com.highcapable.kavaref.extension.classOf
+import com.highcapable.kavaref.extension.isSubclassOf
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import ru.bluecat.novpndetectenhanced.printLogs
 
@@ -54,7 +55,7 @@ object ConnectivityManagerHooker : YukiBaseHooker() {
             .optional(true)
             .method {
                 name { it in registerMethods }
-                parameters { params -> params.any { netCallback.isAssignableFrom(it) } }
+                parameters { params -> params.any { it isSubclassOf netCallback } }
             }
 
         methods.forEach { method ->
